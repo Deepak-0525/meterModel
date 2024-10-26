@@ -1,0 +1,237 @@
+
+body {
+   font-family: system-ui, -apple-system, sans-serif;
+   margin: 20px;
+   background-color: #f5f5f5;
+}
+
+.container {
+   max-width: 1200px;
+   margin: 0 auto;
+   background: white;
+   border-radius: 8px;
+   padding: 24px;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.table-header {
+   font-size: 24px;
+   font-weight: 600;
+   margin-bottom: 24px;
+   color: #1a1a1a;
+}
+
+table {
+   width: 100%;
+   border-collapse: collapse;
+}
+th {
+   text-align: left;
+   padding: 12px;
+   color: #666;
+   font-weight: 500;
+   background: #f9f9f9;
+   border-bottom: 1px solid #eee;
+}
+
+td {
+   padding: 12px;
+   border-bottom: 2px dashed #777777;
+   color: #333;
+}
+
+.checkbox {
+   width: 16px;
+   height: 16px;
+   border: 1px solid #d1d5db;
+   border-radius: 6px;
+   margin: 0;
+ }
+ .row-checkbox {
+   width: 16px;
+   height: 16px;
+   border: 1px solid #d1d5db;
+   border-radius: px;
+   margin: 0;
+ }
+.checkbox-cell {
+   width: 40px;
+}
+tr:hover{
+   background-color: #c9c9c9;
+}
+
+
+
+
+/* Pagination Styles */
+.pagination {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   margin-top: 20px;
+   gap: 16px;
+   padding-top: 16px;
+ }
+
+.rows-select {
+   padding: 6px 12px;
+   border: 1px solid #141414;
+   border-radius: 4px;
+}
+
+.page-info {
+   color: #666;
+}
+.buttons {
+   display: flex;
+   border: none;
+   background-color: transparent;
+   color: #9c9c9c;
+   font-size: x-large; 
+}
+#prePage{
+   margin-right: -20px;
+}
+#prePage:hover{
+   color: #000000;
+}
+#nextPage:hover {
+   color: #000000;
+}
+.button {
+   padding: 6px 12px;
+   border: 1px solid #ddd;
+   background: white;
+   border-radius: 4px;
+   cursor: pointer;
+}
+.button:disabled {
+   cursor: not-allowed;
+   opacity: 0.5;
+}
+.button-actions {
+   margin-top: 20px;
+   display: flex;
+   justify-content: flex-end;
+   gap: 12px;
+}
+.add-button {
+   background: #1a1a1a;
+   color: white;
+   border: none;
+   padding: 8px 16px;
+   border-radius: 6px;
+   cursor: pointer;
+   opacity: 0.6;
+   transition: 0.3s;
+}
+.add-button::shadow{
+   background-color: #666;
+}
+.add-button:hover {opacity:1}
+
+.edit-button, .del-button {
+   padding: 8px 16px;
+   border: 1px solid #ddd;
+   background: rgb(238, 238, 238);
+   border-radius: 6px;
+   cursor: pointer;
+}
+
+.edit-button:disabled, .del-button:disabled {
+   cursor: not-allowed;
+   opacity: 0.5;
+}
+
+/* popup code------>*/
+.popup-window {
+   display: none;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border: 1px solid #ccc;
+   background: white;
+   padding: 2rem;
+   border-radius: 12px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   width: 100%;
+   max-width: 800px;
+}
+
+h1 {
+   color: #1a1a1a;
+   font-size: 1.5rem;
+   margin-bottom: 2rem;
+   font-weight: 600;
+}
+
+.form-grid{ 
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.form-group {
+   display: flex;
+   flex-direction: column;
+}
+label {
+   color: #6b7280;
+   font-size: 0.875rem;
+   margin-bottom: 0.5rem;
+}
+input {
+   padding: 0.75rem;
+   border: 1px solid #e5e7eb;
+   border-radius: 6px;
+   font-size: 1rem;
+   transition: border-color 0.2s;
+}
+input:focus {
+   outline: none;
+   border-color: #2563eb;
+   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.button-perfom{
+   display: flex;
+   justify-content: flex-end;
+   gap: 1rem;
+   margin-top: 2rem;
+}
+button {
+   padding: 0.75rem 1.5rem;
+   border-radius: 6px;
+   font-size: 0.875rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: all 0.2s;
+}
+
+.back-button{
+   background: white;
+   border: 1px solid #e5e7eb;
+   color: #374151;
+}
+.back-button:hover{
+   background-color: #dedede ;
+}
+
+.cancel-button {
+   background: white;
+   border: 1px solid #e5e7eb;
+   color: #374151;
+}
+.cancel-button:hover {
+   background: #dedede;
+}
+.save-button {
+   background: #696969;
+   border: 1px solid #616161;
+   color: white;
+}
+.save-button:hover {
+   background-color: #000000;
+   color: #ffffff;
+}
