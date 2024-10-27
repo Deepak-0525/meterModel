@@ -75,8 +75,8 @@
             </div>
 
             <div class="button-perfom">
-               <button type="button" id="backButton" class="back-button">Back</button>
-               <button type="button" id="cnlButton" class="cancel-button">Cancel</button>
+               <button type="button" id="cancelButton" class="cancel-button">Cancel</button>
+               <button type="button" id="clrButton" class="clear-button">Clear</button>
                <button type="submit" id="saveButton" class="save-button">Save</button>
 
             </div>
@@ -86,18 +86,28 @@
 
 
    <script>
+
+
+      const selectAllCheckbox = document.getElementById("selectAll");
+      selectAllCheckbox.addEventListener("change", ()=>{
+         const rowCheckbox = document.querySelectorAll(".rowCheckbox");
+         rowCheckbox.forEach(checkbox =>{
+            checkbox.checked = selectAllCheckbox.checked;
+         })
+      });
+
       const openPopup = document.getElementById("addButton");
       const popup = document.getElementById("popup");
       const saveButton = document.getElementById("saveButton");
       const meterTable = document.getElementById("meterTable");
-      const cancel = document.getElementById("cnlButton");
-      const backButton = document.getElementById("backButton");
+      const clear = document.getElementById("clrButton");
+      const cancel = document.getElementById("cancelButton");
 
       openPopup.addEventListener("click",() =>{
          popup.style.display = "block";
       });
 
-      cancel.addEventListener("click", ()=>{
+      clear.addEventListener("click", ()=>{
          
          document.getElementById("modelName").value = "";
          document.getElementById("manufacture").value = "";
@@ -107,7 +117,7 @@
          document.getElementById("dials").value = "";
       });
 
-      backButton.addEventListener("click", ()=>{
+      cancel.addEventListener("click", ()=>{
          popup.style.display = "none";
          document.getElementById("modelName").value = "";
          document.getElementById("manufacture").value = "";
@@ -117,8 +127,8 @@
          document.getElementById("dials").value = "";
       })
 
-      saveButton.addEventListener("submit", (event) => {
-         event.preventDefault();
+      saveButton.addEventListener("click", (event) => {
+        event.preventDefault();
 
          const modelName = document.getElementById("modelName").value;
          const manufacture = document.getElementById("manufacture").value;
@@ -129,8 +139,8 @@
 
 
          const newRow = document.createElement("tr");
-          
          const data = [
+            `<td><input type="checkbox" class="rowCheckbox"></td>`,
             `<td>${modelName}</td>`,
             `<td>${manufacture}</td>`,
             `<td>${description}</td>`,
@@ -142,7 +152,7 @@
 
          newRow.innerHTML = data.join('');
 
-         meterTable.querySelector("tbody".appendChild(newRow));
+         meterTable.querySelector("tbody").appendChild(newRow);
 
          document.getElementById("modelName").value = "";
          document.getElementById("manufacture").value = "";
