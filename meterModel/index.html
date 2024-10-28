@@ -12,7 +12,7 @@
          <thead>
             <tr>
                <th><input type="checkbox" id="selectAll" class="checkbox"></th>
-               <th>Meter Model Name</th>
+               <th>Meter Model Name</th>   
                <th>Manufacturer</th>
                <th>Description</th>
                <th>Multiplier</th>
@@ -159,6 +159,54 @@
 
          popup.style.display = "none";
 
+
+         function updateButtons() {
+            const checkedBoxes = document.querySelectorAll('.rowCheckbox:checked');
+            const editButton = document.getElementById('editButton');
+            const delButton = document.getElementById('delButton');
+            
+            editButton.disabled = checkedBoxes.length !== 1;
+            delButton.disabled = checkedBoxes.length === 0;
+         }
+
+         
+         document.querySelector('tbody').addEventListener('click', function(e) {
+            if (e.target.classList.contains('rowCheckbox')) {
+               updateButtons();
+            }
+         });
+
+         document.getElementById('editButton').addEventListener('click', function() {
+            const checkedBox = document.querySelector('.rowCheckbox:checked');
+            if (!checkedBox) return;
+            
+            const row = checkedBox.closest('tr');
+            const cells = row.cells;
+
+            document.getElementById('modelName').value = cells[1].textContent;
+            document.getElementById('manufacture').value = cells[2].textContent;
+            document.getElementById('description').value = cells[3].textContent;
+            document.getElementById('multiplier').value = cells[4].textContent;
+            document.getElementById('rollover').value = cells[5].textContent;
+            document.getElementById('dials').value = cells[6].textContent;
+            
+            popup.style.display = 'block';
+            row.remove();
+         });
+
+      });
+
+      document.getElementById('delButton').addEventListener('click', function() {
+         const checkedBoxes = document.querySelectorAll('.rowCheckbox:checked');
+         if (checkedBoxes.length === 0) return;
+         
+         if (confirm('Are you sure you want to delete?')) {
+            checkedBoxes.forEach(box => {
+                  box.closest('tr').remove();
+            });
+            updateButtons();
+            selectAllCheckbox.checked = false;
+         }
       });
 
 
